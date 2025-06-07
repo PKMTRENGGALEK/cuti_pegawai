@@ -1,0 +1,59 @@
+<div class="card shadow mt-2">
+<div class="card-body">
+<h4 class="mb-4 text-danger">FORM PENGAJUAN CUTI</h4>  
+  <div class="container-fluid mt-4">
+      
+
+      <div class="card border-0 shadow">
+        <div class="card-body">
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="nama" class="form-label">Nama Pegawai</label>
+                <input type="text" id="nama" class="form-control" placeholder="Nama lengkap">
+              </div>
+              <div class="col-md-6">
+                <label for="jenis" class="form-label">Jenis Cuti</label>
+                <select id="jenis" class="form-select">
+                  <option value="">Pilih jenis cuti</option>
+                  <option>Cuti Tahunan</option>
+                  <option>Cuti Sakit</option>
+                  <option>Cuti Melahirkan</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
+                <input type="text" id="tanggal_mulai" class="form-control flatpickr" placeholder="YYYY-MM-DD">
+              </div>
+              <div class="col-md-6">
+                <label for="tanggal_selesai" class="form-label">Tanggal Selesai</label>
+                <input type="text" id="tanggal_selesai" class="form-control flatpickr" placeholder="YYYY-MM-DD">
+              </div>
+              <div class="col-12">
+                <label for="alasan" class="form-label">Alasan</label>
+                <textarea id="alasan" class="form-control" rows="3" placeholder="Alasan cuti..."></textarea>
+              </div>
+            </div>
+            <div class="mt-4">
+              <button type="button" class="btn btn-primary" onclick="showSuccessToast()">
+                <i class="fas fa-paper-plane me-2"></i>Ajukan Cuti
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+      <!-- Toast -->
+  <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+    <div id="successToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <i class="fas fa-check-circle me-2"></i>Pengajuan cuti berhasil dikirim!
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+    </div>
+    </div>
+    
