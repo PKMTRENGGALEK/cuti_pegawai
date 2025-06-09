@@ -31,6 +31,15 @@ $(document).ready(function () {
       } else {
         // Inisialisasi ulang komponen setelah halaman dimuat
         initComponents();
+         // Cek jika halaman pegawai, load script-nya
+      if (page === 'datapegawai') {
+        if (!document.querySelector('script[src="pegawai.js"]')) {
+          const script = document.createElement("script");
+          script.src = "pegawai.js";
+          document.body.appendChild(script);
+        }
+      }
+    
       }
     });
   }
