@@ -1,90 +1,116 @@
-<div class="card shadow mt-2">
-  <div class="card-body">
-    <div class="d-flex justify-content-between mb-2">
-      <h5>Data Pegawai</h5>
-      <button class="btn btn-primary bg-gradient shadow" data-bs-toggle="modal" data-bs-target="#pegawaiModalTambah">+ Tambah Data</button>
-    </div>
+<div class="container mt-5">
+  <h2 class="mb-4">Master Karyawan</h2>
+  <button
+    class="btn btn-primary mb-3 shadow"
+    data-bs-toggle="modal"
+    data-bs-target="#addModal"
+  >
+    + Tambah Karyawan
+  </button>
 
-    <table id="pegawaiTable" class="table table-striped table-bordered">
-      <thead>
+  <div class="table-responsive">
+    <table
+      id="karyawanTable"
+      class="table table-striped table-bordered table-hover"
+    >
+      <thead class="table-dark" style="font-size: 13px">
         <tr>
-          <th class="bg-danger bg-gradient text-white">Nama</th>
-          <th class="bg-danger bg-gradient text-white">NIP</th>
-          <th class="bg-danger bg-gradient text-white">Jabatan</th>
-          <th class="bg-danger bg-gradient text-white">Golongan</th>
-          <th class="bg-danger bg-gradient text-white text-center">Aksi</th>
+          <th class="bg-danger bg-gradient text-center">NO</th>
+          <th class="bg-danger bg-gradient text-center">NAMA</th>
+          <th class="bg-danger bg-gradient text-center">USERNAME</th>
+          <th class="bg-danger bg-gradient text-center">NIP</th>
+          <th class="bg-danger bg-gradient text-center">JABATAN</th>
+          <th class="bg-danger bg-gradient text-center">GOL</th>
+          <th class="bg-danger bg-gradient text-center">Jabatan Tingkat</th>
+          <th class="bg-danger bg-gradient text-center">JENJANG JABATAN</th>
+          <th class="bg-danger bg-gradient text-center" width="100px">AKSI</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody style="font-size: 13px"></tbody>
     </table>
   </div>
 </div>
-
-<!-- Modal Tambah -->
-<div class="modal fade" id="pegawaiModalTambah" tabindex="-1">
+<!-- Modal Edit -->
+<div class="modal fade" id="editModal" tabindex="-1">
   <div class="modal-dialog">
-    <form id="formPegawai" class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Tambah Pegawai</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+    <form id="editForm" class="modal-content">
+      <div class="modal-header"><h5>Edit Data</h5></div>
       <div class="modal-body">
-        <input type="hidden" id="pegawaiId">
-        <div class="mb-3">
-          <label>Nama</label>
-          <input type="text" class="form-control" id="nama">
-        </div>
-        <div class="mb-3">
-          <label>NIP</label>
-          <input type="text" class="form-control" id="nip">
-        </div>
-        <div class="mb-3">
-          <label>Jabatan</label>
-          <input type="text" class="form-control" id="jabatan">
-        </div>
-        <div class="mb-3">
-          <label>Golongan</label>
-          <input type="text" class="form-control" id="golongan">
-        </div>
+        <input type="hidden" id="editIndex" />
+        <input class="form-control mb-2" id="editNama" placeholder="Nama" />
+        <input
+          class="form-control mb-2"
+          id="editUsername"
+          placeholder="Username"
+        />
+        <input class="form-control mb-2" id="editNIP" placeholder="NIP" />
+        <input
+          class="form-control mb-2"
+          id="editJabatan"
+          placeholder="Jabatan"
+        />
+        <input class="form-control mb-2" id="editGol" placeholder="Gol" />
+        <input
+          class="form-control mb-2"
+          id="editJabatanTingkat"
+          placeholder="Jabatan Tingkat"
+        />
+        <input
+          class="form-control mb-2"
+          id="editJenjang"
+          placeholder="Jenjang Jabatan"
+        />
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-success">Simpan</button>
+        <button class="btn btn-primary" type="submit">Simpan</button>
       </div>
     </form>
   </div>
 </div>
-
-<!-- Modal Edit -->
-<div class="modal fade" id="pegawaiModalEdit" tabindex="-1">
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <div
+    id="successToast"
+    class="toast bg-success text-white"
+    role="alert"
+    data-bs-delay="3000"
+  >
+    <div class="toast-body" id="toastBody"></div>
+  </div>
+</div>
+<!-- Modal Tambah -->
+<div class="modal fade" id="addModal" tabindex="-1">
   <div class="modal-dialog">
-    <form id="formPegawaiEdit" class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Edit Pegawai</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+    <form id="addForm" class="modal-content">
+      <div class="modal-header"><h5>Tambah Data</h5></div>
       <div class="modal-body">
-        <input type="hidden" id="pegawaiIdEdit">
-        <div class="mb-3">
-          <label>Nama</label>
-          <input type="text" class="form-control" id="namaEdit">
-        </div>
-        <div class="mb-3">
-          <label>NIP</label>
-          <input type="text" class="form-control" id="nipEdit">
-        </div>
-        <div class="mb-3">
-          <label>Jabatan</label>
-          <input type="text" class="form-control" id="jabatanEdit">
-        </div>
-        <div class="mb-3">
-          <label>Golongan</label>
-          <input type="text" class="form-control" id="golonganEdit">
-        </div>
+        <input class="form-control mb-2" id="addNama" placeholder="Nama" />
+        <input
+          class="form-control mb-2"
+          id="addUsername"
+          placeholder="Username"
+        />
+        <input class="form-control mb-2" id="addNIP" placeholder="NIP" />
+        <input
+          class="form-control mb-2"
+          id="addJabatan"
+          placeholder="Jabatan"
+        />
+        <input class="form-control mb-2" id="addGol" placeholder="Gol" />
+        <input
+          class="form-control mb-2"
+          id="addJabatanTingkat"
+          placeholder="Jabatan Tingkat"
+        />
+        <input
+          class="form-control mb-2"
+          id="addJenjang"
+          placeholder="Jenjang Jabatan"
+        />
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button class="btn btn-success" type="submit">Simpan</button>
       </div>
     </form>
   </div>
